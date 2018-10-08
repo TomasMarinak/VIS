@@ -1,0 +1,6 @@
+rezervacia sedadiel pre divadlo, platba, objednavka
+
+UC: rezervacia, storno, vytvorenie novej udalosti
+
+statistika predajov, prekrocenie casu na rezervaciu je tiez usecase, moznost pridat overeneho zakaznika ak je staly nakupca,
+zrusenie aktivneho predstavenia
