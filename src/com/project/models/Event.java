@@ -1,17 +1,27 @@
 package com.project.models;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Event {
-    private LocalDate date;
+    private Long ID;
+    private LocalDateTime date;
     private String name;
     private Byte[] photo;
 
-    public LocalDate getDate() {
+    public Long getID() {
+        return ID;
+    }
+
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

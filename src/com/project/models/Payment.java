@@ -4,14 +4,23 @@ import com.project.models.Enums.EPayment;
 
 public class Payment {
     EPayment state;
-    Long amount;
+    Double amount;
     String currency;
+    User  customer;
 
-    public Long getAmount() {
+    public User getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(User customer) {
+        this.customer = customer;
+    }
+
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
