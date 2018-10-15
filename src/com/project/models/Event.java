@@ -9,6 +9,18 @@ public class Event {
     private String name;
     private Byte[] photo;
 
+    public Event(LocalDateTime date, String name, Byte[] photo, Hall placeOfPerforming) {
+        this.date = date;
+        this.name = name;
+        this.photo = photo;
+        this.placeOfPerforming = placeOfPerforming;
+    }
+
+    public Event() {
+    }
+
+    private Hall placeOfPerforming;
+
     public Long getID() {
         return ID;
     }
@@ -39,5 +51,13 @@ public class Event {
 
     public void setPhoto(Byte[] photo) {
         this.photo = photo;
+    }
+
+    public Hall getPlaceOfPerforming() {
+        return placeOfPerforming;
+    }
+
+    public void setPlaceOfPerforming(Hall placeOfPerforming) {
+        this.placeOfPerforming = placeOfPerforming;
     }
 }
