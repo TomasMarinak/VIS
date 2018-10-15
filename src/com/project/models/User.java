@@ -8,6 +8,17 @@ public class User {
     private String lastName;
     private String email;
 
+    public User() {
+    }
+
+    public User(EUser role, String name, String lastName, String email, String address) {
+        this.role = role;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+    }
+
     public EUser getRole() {
         return role;
     }
