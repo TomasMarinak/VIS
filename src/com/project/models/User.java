@@ -3,6 +3,7 @@ package com.project.models;
 import com.project.models.Enums.EUser;
 
 public class User {
+    private Long Id;
     private EUser role;
     private String name;
     private String lastName;
@@ -17,6 +18,14 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.address = address;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public Long getId() {
+        return Id;
     }
 
     public EUser getRole() {
