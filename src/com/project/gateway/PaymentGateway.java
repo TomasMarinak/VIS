@@ -2,6 +2,7 @@ package com.project.gateway;
 
 
 import com.project.models.Enums.EPayment;
+import com.project.models.Enums.ESeat;
 import com.project.models.Payment;
 
 import java.sql.*;
@@ -13,8 +14,6 @@ public class PaymentGateway {
     public PaymentGateway(Connection connection) {
         this.connection = connection;
     }
-
-
 
         public void delete (Long id){
             String query = "delete from payment where";
@@ -39,16 +38,16 @@ public class PaymentGateway {
             }
         }
 
-    public void save(Payment payment){
+    public void save( Long Id,EPayment state, Double amount,String currency, Long customerId){
         String query =" insert into payment (Id,State, Amount, Currency, Customer_id) Values(?,?,?,?,?)";
         try {
-            PreparedStatement preparedStatement  = connection.prepareStatement(query);
+            PreparedStatement preparedStatement  = connection.prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS);
             connection.setAutoCommit(false);
-            preparedStatement.setLong(1,payment.getID());
-            preparedStatement.setString(2,payment.getState().toString());
-            preparedStatement.setDouble(3,payment.getAmount());
-            preparedStatement.setString(4,payment.getCurrency());
-            preparedStatement.setLong(5,payment.getCustomer_id());
+           preparedStatement.setLong(1,Id);
+            preparedStatement.setString(2, state.toString());
+            preparedStatement.setDouble(3,amount);
+            preparedStatement.setString(4,currency);
+            preparedStatement.setLong(5,customerId);
             preparedStatement.execute();
             connection.commit();
             connection.setAutoCommit(true);
@@ -65,7 +64,21 @@ public class PaymentGateway {
             // use c to add conditions to query
         try {
             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            res = statement.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        // for each row in res add a customer object to result
+        return res;
+        // etc.
+    }
 
+    public ResultSet findAll() {
+        String query = "select * from payment ";
+        ResultSet res = null;
+        // use c to add conditions to query
+        try {
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
             res = statement.executeQuery(query);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -8,15 +8,25 @@ public class Event {
     private LocalDateTime date;
     private String name;
     private Byte[] photo;
+    private String description;
 
-    public Event(LocalDateTime date, String name, Byte[] photo, Hall placeOfPerforming) {
+    public Event(Long ID, LocalDateTime date, String name, String description, Hall placeOfPerforming) {
+        this.ID = ID;
         this.date = date;
         this.name = name;
-        this.photo = photo;
+        this.description = description;
         this.placeOfPerforming = placeOfPerforming;
     }
 
     public Event() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     private Hall placeOfPerforming;

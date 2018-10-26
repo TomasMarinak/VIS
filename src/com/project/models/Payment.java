@@ -1,10 +1,20 @@
 package com.project.models;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import com.project.models.Enums.EPayment;
 
 public class Payment {
 
+    @Id
+    @SequenceGenerator(name="seq",sequenceName="oracle_seq")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
+
+
     private EPayment state;
     private Double amount;
     private String currency;

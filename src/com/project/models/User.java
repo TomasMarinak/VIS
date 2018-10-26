@@ -8,6 +8,8 @@ public class User {
     private String name;
     private String lastName;
     private String email;
+    private String address;
+
 
     public User() {
     }
@@ -67,8 +69,6 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    private String address;
 
     @Override
     public String toString() {

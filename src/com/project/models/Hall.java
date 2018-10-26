@@ -4,16 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hall {
+
+    private Long id ;
     private List<Seat> seats = new ArrayList<>();
     private List<Event> events = new ArrayList<>();
     private String name;
     private String address;
 
-    public Hall(List<Seat> seats, List<Event> events, String name, String address) {
-        this.seats = seats;
-        this.events = events;
+    public Hall(Long id/*, List<Seat> seats, List<Event> events*/, String name, String address) {
+        this.id = id;
+    //    this.seats = seats;
+      //  this.events = events;
         this.name = name;
         this.address = address;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Hall() {

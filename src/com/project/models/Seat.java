@@ -4,11 +4,11 @@ import com.project.models.Enums.EOrientation;
 import com.project.models.Enums.ESeat;
 
 public class Seat {
-    long ID ;
-    int row;
-    int column;
-    EOrientation orientation;
-    ESeat state;
+    private long ID ;
+    private int row;
+    private int column;
+    private EOrientation orientation;
+    private ESeat state;
 
     public Seat() {
     }
