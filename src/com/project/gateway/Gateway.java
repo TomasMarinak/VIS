@@ -1,15 +1,17 @@
 package com.project.gateway;
 
+import com.project.config.SQLConnection;
+
 import java.lang.reflect.Type;
 import java.sql.*;
 
 
 public class Gateway{
-    private Connection connection;
     private String name;
-    public Gateway(Connection connection,String name) {
-        this.connection = connection;
+    Connection connection;
+    public Gateway(String name) throws SQLException {
         this.name = name;
+        connection = SQLConnection.getConnection();
     }
 
 
@@ -46,6 +48,7 @@ public class Gateway{
     public ResultSet findAll() {
         String query = "select * from "+ this.name+ "";
         ResultSet res = null;
+       // System.out.println(query);
         // use c to add conditions to query
         try {
             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);

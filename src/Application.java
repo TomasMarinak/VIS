@@ -29,7 +29,7 @@ public class Application {
             final PaymentGateway paymentGateway = new PaymentGateway(connection);
             final SeatGateway seatGateway= new SeatGateway(connection );
             final UserGateway userGateway = new UserGateway(connection,"users");
-            userGateway.save(1L,EUser.CUSTOMER,"Peter","Maly","peter.maly@maly.com","U velkeho Petra 28, Zlin");
+          //  userGateway.save(1L,EUser.CUSTOMER,"Peter","Maly","peter.maly@maly.com","U velkeho Petra 28, Zlin");
           // paymentGateway.save(5L, EPayment.DURING,29.6 ,"EUR",1L);
             ResultSet rsl = userGateway.findAll();
             while(rsl.next()){

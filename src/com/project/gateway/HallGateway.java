@@ -7,8 +7,9 @@ import java.sql.SQLException;
 
 public class HallGateway extends  Gateway {
         private Connection connection;
-    public HallGateway(Connection connection, String name) {
-        super(connection, name);
+    public HallGateway(Connection connection, String name) throws SQLException {
+        super( name);
+        this.connection = connection;
     }
 
     @Override

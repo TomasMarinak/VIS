@@ -10,12 +10,14 @@ import java.sql.SQLException;
 
 public class UserGateway extends Gateway {
    private Connection connection ;
-    public UserGateway(Connection connection, String name) {
-        super(connection, name);
+    public UserGateway(Connection connection, String name) throws SQLException {
+        super( name);
+
+        this.connection = connection;
     }
 
     public void save(Long id, EUser role, String name, String lastName,String email, String address) {
-        String query =" insert into  users(id,role,name,lastName,email)  Values(?,?,?,?,?,?)";
+        String query =" insert into  users(id,role,name,lastName,email,address)  Values(?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement  = connection.prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS);
             connection.setAutoCommit(false);

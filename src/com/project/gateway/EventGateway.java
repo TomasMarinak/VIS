@@ -7,8 +7,9 @@ import java.time.LocalDateTime;
 public class EventGateway extends  Gateway {
 
     Connection connection;
-    public EventGateway(Connection connection, String name) {
-        super(connection, name);
+    public EventGateway(Connection connection, String name) throws SQLException {
+        super( name);
+        this.connection = connection;
     }
 
     public void update(String  name, Long id, String description){
