@@ -1,12 +1,14 @@
 package com.project.models;
 
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
     private long cardNumber;
     private double actualAmount;
-    private List<Payment> payments = new ArrayList<>();
+    private List<Payment> payments ;
 
     public Account() {
 
@@ -35,6 +37,10 @@ public class Account {
     }
 
     public List<Payment> getPayments() {
+        if(this.payments == null){
+            this.payments =  new ArrayList<>();
+        }
+
         return payments;
     }
 

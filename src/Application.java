@@ -11,7 +11,6 @@ import com.project.models.Payment;
 import com.project.models.User;
 
 import java.sql.*;
-import java.util.Set;
 
 public class Application {
     static final String JDBC_DRIVER = "org.postgresql.Driver";

@@ -13,8 +13,6 @@ public class Payment {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
-
-
     private EPayment state;
     private Double amount;
     private String currency;
